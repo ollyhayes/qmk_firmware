@@ -58,35 +58,17 @@ const uint16_t PROGMEM fn_actions[] = {
 };
 
 // Runs constantly in the background, in a loop.
-//void matrix_scan_user(void) {
-//    uint8_t layer = biton32(layer_state);
-//
-//    static onoff board_led_state = OFF;
-//    static uint16_t dt = 0;
-//    static uint8_t oldlayer = 0;
-//
-//    if(oldlayer != layer) {
-//        // Layer was just toggled.
-//        if(layer == BASE) {
-//            ergodox_board_led_off();
-//            board_led_state = OFF;
-//        } else {
-//            ergodox_board_led_on();
-//            board_led_state = ON;
-//        }
-//    } else if (layer >= MDIA) {
-//        // We need to do blinking.
-//        if(timer_elapsed(dt) > BLINK_BASE) {
-//            // toggle
-//            dt = timer_read();
-//            if(board_led_state == OFF) {
-//                ergodox_board_led_on();
-//                board_led_state = ON;
-//            } else {
-//                ergodox_board_led_off();
-//                board_led_state = OFF;
-//            }
-//        }
-//    }
-//    oldlayer = layer;
-//}
+void matrix_scan_user(void) {
+    uint8_t layer = biton32(layer_state);
+    static uint8_t oldlayer = 0;
+
+    if(oldlayer != layer)
+	{
+        // Layer was just toggled.
+        if(layer == BASE)
+            ergodox_board_led_off();
+        else
+            ergodox_board_led_on();
+	}
+    oldlayer = layer;
+}
