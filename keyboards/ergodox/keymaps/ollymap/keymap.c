@@ -11,11 +11,11 @@ typedef enum onoff_t {OFF, ON} onoff;
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [BASE] = KEYMAP(  // layer 0 : default
         // left hand
-        KC_GRV,     KC_1,     KC_2,    KC_3,    KC_4,    KC_5,    KC_6,
+        KC_GRV,     KC_1,     KC_2,    KC_3,    KC_4,    KC_5,    KC_F3,
         KC_TAB,     KC_Q,     KC_W,    KC_F,    KC_P,    KC_G,    KC_FN0,
         KC_ESC,     KC_A,     KC_R,    KC_S,    KC_T,    KC_D,
-        KC_LSFT,    KC_Z,     KC_X,    KC_C,    KC_V,    KC_B,    KC_BSLS,
-        KC_LCTRL,   KC_LGUI,  KC_LALT, KC_NO,   KC_NO,
+        KC_LSFT,    KC_Z,     KC_X,    KC_C,    KC_V,    KC_B,    KC_NUHS,
+        KC_LCTRL,   KC_LGUI,  KC_LALT, KC_NO,   KC_NUBS,
                                                          KC_F6,   KC_F8,
                                                                   KC_PGUP,
                                                 KC_BSPC, KC_DEL,  KC_HOME,
