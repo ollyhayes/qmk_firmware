@@ -37,89 +37,89 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [NUMLEFT] = LAYOUT_ergodox(
        // left hand
-       -------,-------,-------,KC_KP_SLASH,KC_KP_ASTERISK,KC_KP_MINUS,-------,
-	   -------,-------,KC_KP_7,KC_KP_8,    KC_KP_9,       KC_KP_PLUS, -------,
-       -------,-------,KC_KP_4,KC_KP_5,    KC_KP_6,       KC_KP_PLUS,
-       -------,-------,KC_KP_1,KC_KP_2,    KC_KP_3,       KC_KP_ENTER,-------,
-       -------,-------,KC_KP_0,KC_KP_0,    KC_KP_DOT,
-                                                          -------,    -------,
-				                                                      -------,
-                                           -------,       -------,    -------,
+       KC_TRNS,KC_TRNS,KC_TRNS,KC_KP_SLASH,KC_KP_ASTERISK,KC_KP_MINUS,KC_TRNS,
+	   KC_TRNS,KC_TRNS,KC_KP_7,KC_KP_8,    KC_KP_9,       KC_KP_PLUS, KC_TRNS,
+       KC_TRNS,KC_TRNS,KC_KP_4,KC_KP_5,    KC_KP_6,       KC_KP_PLUS,
+       KC_TRNS,KC_TRNS,KC_KP_1,KC_KP_2,    KC_KP_3,       KC_KP_ENTER,KC_TRNS,
+       KC_TRNS,KC_TRNS,KC_KP_0,KC_KP_0,    KC_KP_DOT,
+                                                          KC_TRNS,    KC_TRNS,
+				                                                      KC_TRNS,
+                                           KC_TRNS,       KC_TRNS,    KC_TRNS,
 
        // right hand
-       -------, -------, -------, -------, -------, -------, -------,
-       -------, -------, -------, -------, -------, -------, -------,
-                -------, -------, -------, -------, -------, -------,
-       -------, -------, -------, -------, -------, -------, -------,
-                         -------, -------, -------, -------, -------,
-       -------, -------,
-       -------,
-       -------, -------, -------
+       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+       KC_TRNS, KC_TRNS,
+       KC_TRNS,
+       KC_TRNS, KC_TRNS, KC_TRNS
    ),
    [NUMRIGHT] = LAYOUT_ergodox(
        // left hand
-       -------,-------,-------,-------,-------,-------,-------,
-	   -------,-------,-------,-------,-------,-------,-------,
-       -------,-------,-------,-------,-------,-------,
-       -------,-------,-------,-------,-------,-------,-------,
-       -------,-------,-------,-------,-------,
-                                               -------,-------,
-                                                       -------,
-                                       -------,-------,-------,
+       KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
+	   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
+       KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
+       KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
+       KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
+                                               KC_TRNS,KC_TRNS,
+                                                       KC_TRNS,
+                                       KC_TRNS,KC_TRNS,KC_TRNS,
 
 
-       -------,-------,-------,KC_KP_SLASH,KC_KP_ASTERISK,KC_KP_MINUS, -------,
-	   -------,-------,KC_KP_7,KC_KP_8,    KC_KP_9,       KC_KP_PLUS, -------,
-               -------,KC_KP_4,KC_KP_5,    KC_KP_6,       KC_KP_PLUS, -------,
-       -------,-------,KC_KP_1,KC_KP_2,    KC_KP_3,       KC_KP_ENTER,-------,
-                       KC_KP_0,KC_KP_0,    KC_KP_DOT,     KC_KP_ENTER,-------,
-       -------,-------,
-       -------,
-       -------,-------,-------
+       KC_TRNS,KC_TRNS,KC_TRNS,KC_KP_SLASH,KC_KP_ASTERISK,KC_KP_MINUS, KC_TRNS,
+	   KC_TRNS,KC_TRNS,KC_KP_7,KC_KP_8,    KC_KP_9,       KC_KP_PLUS, KC_TRNS,
+               KC_TRNS,KC_KP_4,KC_KP_5,    KC_KP_6,       KC_KP_PLUS, KC_TRNS,
+       KC_TRNS,KC_TRNS,KC_KP_1,KC_KP_2,    KC_KP_3,       KC_KP_ENTER,KC_TRNS,
+                       KC_KP_0,KC_KP_0,    KC_KP_DOT,     KC_KP_ENTER,KC_TRNS,
+       KC_TRNS,KC_TRNS,
+       KC_TRNS,
+       KC_TRNS,KC_TRNS,KC_TRNS
     ),
 
     [FUNCLEFT] = LAYOUT_ergodox(
        // left hand
-       -------,-------,-------,-------,-------,-------,-------,
-	   -------,-------,KC_F7,  KC_F8,  KC_F9,  KC_F10, -------,
-       -------,-------,KC_F4,  KC_F5,  KC_F4,  KC_F11, 
-       -------,-------,KC_F1,  KC_F2,  KC_F3,  KC_F12, -------,
-       -------,-------,KC_F10, KC_F11, KC_F12,
-                                               -------,-------,
-                                                       -------,
-                                       -------,-------,-------,
+       KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
+	   KC_TRNS,KC_TRNS,KC_F7,  KC_F8,  KC_F9,  KC_F10, KC_TRNS,
+       KC_TRNS,KC_TRNS,KC_F4,  KC_F5,  KC_F4,  KC_F11, 
+       KC_TRNS,KC_TRNS,KC_F1,  KC_F2,  KC_F3,  KC_F12, KC_TRNS,
+       KC_TRNS,KC_TRNS,KC_F10, KC_F11, KC_F12,
+                                               KC_TRNS,KC_TRNS,
+                                                       KC_TRNS,
+                                       KC_TRNS,KC_TRNS,KC_TRNS,
 
        // right hand
-       -------, -------, -------, -------, -------, -------, -------,
-       -------, -------, -------, -------, -------, -------, -------,
-                -------, -------, -------, -------, -------, -------,
-       -------, -------, -------, -------, -------, -------, -------,
-                         -------, -------, -------, -------, -------,
-       -------, -------,
-       -------,
-       -------, -------, -------
+       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+       KC_TRNS, KC_TRNS,
+       KC_TRNS,
+       KC_TRNS, KC_TRNS, KC_TRNS
    ),
 
    [FUNCRIGHT] = LAYOUT_ergodox(
        // left hand
-       -------,-------,-------,-------,-------,-------,-------,
-	   -------,-------,-------,-------,-------,-------,-------,
-       -------,-------,-------,-------,-------,-------,
-       -------,-------,-------,-------,-------,-------,-------,
-       -------,-------,-------,-------,-------,
-                                               -------,-------,
-                                                       -------,
-                                       -------,-------,-------,
+       KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
+	   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
+       KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
+       KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
+       KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
+                                               KC_TRNS,KC_TRNS,
+                                                       KC_TRNS,
+                                       KC_TRNS,KC_TRNS,KC_TRNS,
 
 
-       -------,-------,-------,-------,-------,-------,-------,
-	   -------,KC_F10, KC_F7,  KC_F8,  KC_F9,  -------,-------,
-               KC_F11, KC_F4,  KC_F5,  KC_F4,  -------,-------,
-       -------,KC_F12, KC_F1,  KC_F2,  KC_F3,  -------,-------,
-                       KC_F10, KC_F11, KC_F12, -------,-------,
-       -------,-------,
-       -------,
-       -------,-------,-------
+       KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
+	   KC_TRNS,KC_F10, KC_F7,  KC_F8,  KC_F9,  KC_TRNS,KC_TRNS,
+               KC_F11, KC_F4,  KC_F5,  KC_F4,  KC_TRNS,KC_TRNS,
+       KC_TRNS,KC_F12, KC_F1,  KC_F2,  KC_F3,  KC_TRNS,KC_TRNS,
+                       KC_F10, KC_F11, KC_F12, KC_TRNS,KC_TRNS,
+       KC_TRNS,KC_TRNS,
+       KC_TRNS,
+       KC_TRNS,KC_TRNS,KC_TRNS
     ),
 };
 
