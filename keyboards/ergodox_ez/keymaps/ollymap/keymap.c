@@ -10,6 +10,13 @@
 
 typedef enum onoff_t {OFF, ON} onoff;
 
+enum custom_keycodes {
+    DOWN3 = SAFE_RANGE,
+    UP3,
+    CLEFT,
+    CRIGHT
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [BASE] = LAYOUT_ergodox(  // layer 0 : default
         // left hand
@@ -80,7 +87,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
 	   KC_TRNS,KC_TRNS,KC_HOME,KC_PGDN,KC_PGUP,KC_END, KC_TRNS,
        KC_TRNS,KC_TRNS,KC_LEFT,KC_UP,  KC_DOWN,KC_RGHT, 
-       KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
+       KC_TRNS,KC_TRNS,CLEFT,  DOWN3,  UP3,    CRIGHT, KC_TRNS,
        KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
                                                KC_TRNS,KC_TRNS,
                                                        KC_TRNS,
@@ -90,7 +97,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
        KC_TRNS, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_TRNS, KC_TRNS,
                 KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_TRNS, KC_TRNS,
-       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+       KC_TRNS, CLEFT,   DOWN3,   UP3,     CRIGHT,  KC_TRNS, KC_TRNS,
                          KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
        KC_TRNS, KC_TRNS,
        KC_TRNS,
@@ -98,10 +105,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 };
 
-//const uint16_t PROGMEM fn_actions[] = {
-//    // ACTION_LAYER_ON(SYMB,ON_RELEASE),           // FN1 - Enable Layer 1 (Symbols)
-//    // ACTION_LAYER_OFF(SYMB,ON_RELEASE)           // FN3 - Disable Layer 1 (Symbols)
-//};
 
 // Runs constantly in the background, in a loop.
 void matrix_scan_user(void) {
@@ -117,4 +120,46 @@ void matrix_scan_user(void) {
             ergodox_board_led_on();
 	}
     oldlayer = layer;
+}
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case UP3:
+            if (record->event.pressed) {
+                tap_code(KC_UP);
+                tap_code(KC_UP);
+                tap_code(KC_UP);
+                return false;
+            }
+            break;
+
+        case DOWN3:
+            if (record->event.pressed) {
+                tap_code(KC_DOWN);
+                tap_code(KC_DOWN);
+                tap_code(KC_DOWN);
+                return false;
+            }
+            break;
+
+        case CLEFT:
+            if (record->event.pressed) {
+                register_code(KC_LCTRL);
+                tap_code(KC_LEFT);
+                unregister_code(KC_LCTRL);
+                return false;
+            }
+            break;
+
+        case CRIGHT:
+            if (record->event.pressed) {
+                register_code(KC_LCTRL);
+                tap_code(KC_RIGHT);
+                unregister_code(KC_LCTRL);
+                return false;
+            }
+            break;
+    }
+
+    return true;
 }
