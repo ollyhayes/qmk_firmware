@@ -243,6 +243,243 @@ const char string_0228[] PROGMEM = "Web";
 const char string_0229[] PROGMEM = "Window";
 const char string_0230[] PROGMEM = "Worm";
 
+PGM_P const words_table[] PROGMEM =
+{
+	string_0000,
+	string_0001,
+	string_0002,
+	string_0003,
+	string_0004,
+	string_0005,
+	string_0006,
+	string_0007,
+	string_0008,
+	string_0009,
+	string_0010,
+	string_0011,
+	string_0012,
+	string_0013,
+	string_0014,
+	string_0015,
+	string_0016,
+	string_0017,
+	string_0018,
+	string_0019,
+	string_0020,
+	string_0021,
+	string_0022,
+	string_0023,
+	string_0024,
+	string_0025,
+	string_0026,
+	string_0027,
+	string_0028,
+	string_0029,
+	string_0030,
+	string_0031,
+	string_0032,
+	string_0033,
+	string_0034,
+	string_0035,
+	string_0036,
+	string_0037,
+	string_0038,
+	string_0039,
+	string_0040,
+	string_0041,
+	string_0042,
+	string_0043,
+	string_0044,
+	string_0045,
+	string_0046,
+	string_0047,
+	string_0048,
+	string_0049,
+	string_0050,
+	string_0051,
+	string_0052,
+	string_0053,
+	string_0054,
+	string_0055,
+	string_0056,
+	string_0057,
+	string_0058,
+	string_0059,
+	string_0060,
+	string_0061,
+	string_0062,
+	string_0063,
+	string_0064,
+	string_0065,
+	string_0066,
+	string_0067,
+	string_0068,
+	string_0069,
+	string_0070,
+	string_0071,
+	string_0072,
+	string_0073,
+	string_0074,
+	string_0075,
+	string_0076,
+	string_0077,
+	string_0078,
+	string_0079,
+	string_0080,
+	string_0081,
+	string_0082,
+	string_0083,
+	string_0084,
+	string_0085,
+	string_0086,
+	string_0087,
+	string_0088,
+	string_0089,
+	string_0090,
+	string_0091,
+	string_0092,
+	string_0093,
+	string_0094,
+	string_0095,
+	string_0096,
+	string_0097,
+	string_0098,
+	string_0099,
+	string_0100,
+	string_0101,
+	string_0102,
+	string_0103,
+	string_0104,
+	string_0105,
+	string_0106,
+	string_0107,
+	string_0108,
+	string_0109,
+	string_0110,
+	string_0111,
+	string_0112,
+	string_0113,
+	string_0114,
+	string_0115,
+	string_0116,
+	string_0117,
+	string_0118,
+	string_0119,
+	string_0120,
+	string_0121,
+	string_0122,
+	string_0123,
+	string_0124,
+	string_0125,
+	string_0126,
+	string_0127,
+	string_0128,
+	string_0129,
+	string_0130,
+	string_0131,
+	string_0132,
+	string_0133,
+	string_0134,
+	string_0135,
+	string_0136,
+	string_0137,
+	string_0138,
+	string_0139,
+	string_0140,
+	string_0141,
+	string_0142,
+	string_0143,
+	string_0144,
+	string_0145,
+	string_0146,
+	string_0147,
+	string_0148,
+	string_0149,
+	string_0150,
+	string_0151,
+	string_0152,
+	string_0153,
+	string_0154,
+	string_0155,
+	string_0156,
+	string_0157,
+	string_0158,
+	string_0159,
+	string_0160,
+	string_0161,
+	string_0162,
+	string_0163,
+	string_0164,
+	string_0165,
+	string_0166,
+	string_0167,
+	string_0168,
+	string_0169,
+	string_0170,
+	string_0171,
+	string_0172,
+	string_0173,
+	string_0174,
+	string_0175,
+	string_0176,
+	string_0177,
+	string_0178,
+	string_0179,
+	string_0180,
+	string_0181,
+	string_0182,
+	string_0183,
+	string_0184,
+	string_0185,
+	string_0186,
+	string_0187,
+	string_0188,
+	string_0189,
+	string_0190,
+	string_0191,
+	string_0192,
+	string_0193,
+	string_0194,
+	string_0195,
+	string_0196,
+	string_0197,
+	string_0198,
+	string_0199,
+	string_0200,
+	string_0201,
+	string_0202,
+	string_0203,
+	string_0204,
+	string_0205,
+	string_0206,
+	string_0207,
+	string_0208,
+	string_0209,
+	string_0210,
+	string_0211,
+	string_0212,
+	string_0213,
+	string_0214,
+	string_0215,
+	string_0216,
+	string_0217,
+	string_0218,
+	string_0219,
+	string_0220,
+	string_0221,
+	string_0222,
+	string_0223,
+	string_0224,
+	string_0225,
+	string_0226,
+	string_0227,
+	string_0228,
+	string_0229,
+	string_0230
+};
+
+int wordCount = 231;
+
 enum custom_keycodes {
     DOWN3 = SAFE_RANGE,
     UP3,
@@ -250,9 +487,6 @@ enum custom_keycodes {
     CRIGHT,
     RAND
 };
-
-int wordCount = 231;
-const char *words[231];
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [BASE] = LAYOUT_ergodox(  // layer 0 : default
@@ -365,12 +599,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 tap_code(KC_UP);
                 tap_code(KC_UP);
                 tap_code(KC_UP);
+                tap_code(KC_UP);
                 return false;
             }
             break;
 
         case DOWN3:
             if (record->event.pressed) {
+                tap_code(KC_DOWN);
                 tap_code(KC_DOWN);
                 tap_code(KC_DOWN);
                 tap_code(KC_DOWN);
@@ -401,246 +637,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	            //send_string(words[rand() % wordCount]);
 				//need to get this out of program space
 				//http://www.nongnu.org/avr-libc/user-manual/pgmspace.html
+
+				char buffer[15];// = "test";
+
+				strcpy_P(buffer, (PGM_P)pgm_read_word(&(words_table[rand() % wordCount])));
+                send_string(buffer);
                 SEND_STRING(" ");
                 return false;
             }
             break;
     }
     return true;
-}
-
-void keyboard_pre_init_user(void) {
-
-	words[0] = string_0000;
-	words[1] = string_0001;
-	words[2] = string_0002;
-	words[3] = string_0003;
-	words[4] = string_0004;
-	words[5] = string_0005;
-	words[6] = string_0006;
-	words[7] = string_0007;
-	words[8] = string_0008;
-	words[9] = string_0009;
-	words[10] = string_0010;
-	words[11] = string_0011;
-	words[12] = string_0012;
-	words[13] = string_0013;
-	words[14] = string_0014;
-	words[15] = string_0015;
-	words[16] = string_0016;
-	words[17] = string_0017;
-	words[18] = string_0018;
-	words[19] = string_0019;
-	words[20] = string_0020;
-	words[21] = string_0021;
-	words[22] = string_0022;
-	words[23] = string_0023;
-	words[24] = string_0024;
-	words[25] = string_0025;
-	words[26] = string_0026;
-	words[27] = string_0027;
-	words[28] = string_0028;
-	words[29] = string_0029;
-	words[30] = string_0030;
-	words[31] = string_0031;
-	words[32] = string_0032;
-	words[33] = string_0033;
-	words[34] = string_0034;
-	words[35] = string_0035;
-	words[36] = string_0036;
-	words[37] = string_0037;
-	words[38] = string_0038;
-	words[39] = string_0039;
-	words[40] = string_0040;
-	words[41] = string_0041;
-	words[42] = string_0042;
-	words[43] = string_0043;
-	words[44] = string_0044;
-	words[45] = string_0045;
-	words[46] = string_0046;
-	words[47] = string_0047;
-	words[48] = string_0048;
-	words[49] = string_0049;
-	words[50] = string_0050;
-	words[51] = string_0051;
-	words[52] = string_0052;
-	words[53] = string_0053;
-	words[54] = string_0054;
-	words[55] = string_0055;
-	words[56] = string_0056;
-	words[57] = string_0057;
-	words[58] = string_0058;
-	words[59] = string_0059;
-	words[60] = string_0060;
-	words[61] = string_0061;
-	words[62] = string_0062;
-	words[63] = string_0063;
-	words[64] = string_0064;
-	words[65] = string_0065;
-	words[66] = string_0066;
-	words[67] = string_0067;
-	words[68] = string_0068;
-	words[69] = string_0069;
-	words[70] = string_0070;
-	words[71] = string_0071;
-	words[72] = string_0072;
-	words[73] = string_0073;
-	words[74] = string_0074;
-	words[75] = string_0075;
-	words[76] = string_0076;
-	words[77] = string_0077;
-	words[78] = string_0078;
-	words[79] = string_0079;
-	words[80] = string_0080;
-	words[81] = string_0081;
-	words[82] = string_0082;
-	words[83] = string_0083;
-	words[84] = string_0084;
-	words[85] = string_0085;
-	words[86] = string_0086;
-	words[87] = string_0087;
-	words[88] = string_0088;
-	words[89] = string_0089;
-	words[90] = string_0090;
-	words[91] = string_0091;
-	words[92] = string_0092;
-	words[93] = string_0093;
-	words[94] = string_0094;
-	words[95] = string_0095;
-	words[96] = string_0096;
-	words[97] = string_0097;
-	words[98] = string_0098;
-	words[99] = string_0099;
-	words[100] = string_0100;
-	words[101] = string_0101;
-	words[102] = string_0102;
-	words[103] = string_0103;
-	words[104] = string_0104;
-	words[105] = string_0105;
-	words[106] = string_0106;
-	words[107] = string_0107;
-	words[108] = string_0108;
-	words[109] = string_0109;
-	words[110] = string_0110;
-	words[111] = string_0111;
-	words[112] = string_0112;
-	words[113] = string_0113;
-	words[114] = string_0114;
-	words[115] = string_0115;
-	words[116] = string_0116;
-	words[117] = string_0117;
-	words[118] = string_0118;
-	words[119] = string_0119;
-	words[120] = string_0120;
-	words[121] = string_0121;
-	words[122] = string_0122;
-	words[123] = string_0123;
-	words[124] = string_0124;
-	words[125] = string_0125;
-	words[126] = string_0126;
-	words[127] = string_0127;
-	words[128] = string_0128;
-	words[129] = string_0129;
-	words[130] = string_0130;
-	words[131] = string_0131;
-	words[132] = string_0132;
-	words[133] = string_0133;
-	words[134] = string_0134;
-	words[135] = string_0135;
-	words[136] = string_0136;
-	words[137] = string_0137;
-	words[138] = string_0138;
-	words[139] = string_0139;
-	words[140] = string_0140;
-	words[141] = string_0141;
-	words[142] = string_0142;
-	words[143] = string_0143;
-	words[144] = string_0144;
-	words[145] = string_0145;
-	words[146] = string_0146;
-	words[147] = string_0147;
-	words[148] = string_0148;
-	words[149] = string_0149;
-	words[150] = string_0150;
-	words[151] = string_0151;
-	words[152] = string_0152;
-	words[153] = string_0153;
-	words[154] = string_0154;
-	words[155] = string_0155;
-	words[156] = string_0156;
-	words[157] = string_0157;
-	words[158] = string_0158;
-	words[159] = string_0159;
-	words[160] = string_0160;
-	words[161] = string_0161;
-	words[162] = string_0162;
-	words[163] = string_0163;
-	words[164] = string_0164;
-	words[165] = string_0165;
-	words[166] = string_0166;
-	words[167] = string_0167;
-	words[168] = string_0168;
-	words[169] = string_0169;
-	words[170] = string_0170;
-	words[171] = string_0171;
-	words[172] = string_0172;
-	words[173] = string_0173;
-	words[174] = string_0174;
-	words[175] = string_0175;
-	words[176] = string_0176;
-	words[177] = string_0177;
-	words[178] = string_0178;
-	words[179] = string_0179;
-	words[180] = string_0180;
-	words[181] = string_0181;
-	words[182] = string_0182;
-	words[183] = string_0183;
-	words[184] = string_0184;
-	words[185] = string_0185;
-	words[186] = string_0186;
-	words[187] = string_0187;
-	words[188] = string_0188;
-	words[189] = string_0189;
-	words[190] = string_0190;
-	words[191] = string_0191;
-	words[192] = string_0192;
-	words[193] = string_0193;
-	words[194] = string_0194;
-	words[195] = string_0195;
-	words[196] = string_0196;
-	words[197] = string_0197;
-	words[198] = string_0198;
-	words[199] = string_0199;
-	words[200] = string_0200;
-	words[201] = string_0201;
-	words[202] = string_0202;
-	words[203] = string_0203;
-	words[204] = string_0204;
-	words[205] = string_0205;
-	words[206] = string_0206;
-	words[207] = string_0207;
-	words[208] = string_0208;
-	words[209] = string_0209;
-	words[210] = string_0210;
-	words[211] = string_0211;
-	words[212] = string_0212;
-	words[213] = string_0213;
-	words[214] = string_0214;
-	words[215] = string_0215;
-	words[216] = string_0216;
-	words[217] = string_0217;
-	words[218] = string_0218;
-	words[219] = string_0219;
-	words[220] = string_0220;
-	words[221] = string_0221;
-	words[222] = string_0222;
-	words[223] = string_0223;
-	words[224] = string_0224;
-	words[225] = string_0225;
-	words[226] = string_0226;
-	words[227] = string_0227;
-	words[228] = string_0228;
-	words[229] = string_0229;
-	words[230] = string_0230;
-
 }
