@@ -1,6 +1,6 @@
 #include <avr/pgmspace.h>
 
-const char string_0000[] PROGMEM = "Adult";
+const char string_0000[] PROGMEM = "Aardvark";
 const char string_0001[] PROGMEM = "Aeroplane";
 const char string_0002[] PROGMEM = "Air";
 const char string_0003[] PROGMEM = "Aircraft Carrier";
