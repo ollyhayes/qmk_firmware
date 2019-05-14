@@ -19,7 +19,9 @@ enum custom_keycodes {
     UP3,
     CLEFT,
     CRIGHT,
-    RAND
+    RAND,
+    PUNC_ESC,
+    PUNC_QUO
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -27,7 +29,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // left hand
         KC_NO,      KC_NO,    KC_NO,   KC_NO,       KC_NO,   KC_NO,   KC_F3,
         KC_TAB,     KC_Q,     KC_W,    KC_F,        KC_P,    KC_G,    KC_NO,
-        LT(PUNC,KC_ESC),KC_A, KC_R,    KC_S,        KC_T,    KC_D,
+        PUNC_ESC,   KC_A, KC_R,    KC_S,        KC_T,    KC_D,
         KC_LSFT,    KC_Z,     KC_X,    KC_C,        KC_V,    KC_B,    KC_NO,
         KC_LCTRL,   KC_LGUI,  KC_LALT, MO(NUM),     KC_DEL,
                                                              KC_F12,  KC_F8,
@@ -36,7 +38,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // right hand
         KC_F5,      KC_NO,    KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
         KC_NO,      KC_J,     KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_NO,
-                    KC_H,     KC_N,    KC_E,    KC_I,    KC_O,    LT(PUNC,KC_QUOT),
+                    KC_H,     KC_N,    KC_E,    KC_I,    KC_O,    PUNC_QUO,
         KC_NO,      KC_K,     KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
                               MO(FUNCTIONS),RAND,TG(EASY), KC_RGUI, KC_RCTRL,
         KC_F10,     KC_F11,
@@ -189,6 +191,17 @@ void matrix_scan_user(void) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    static bool is_punc = false;
+    static bool punc_used = false;
+
+    if (is_punc == true) {
+
+        // trun on punc layer
+        
+        punc_used = true;
+        return false;
+    }
+
     switch (keycode) {
         case UP3:
             if (record->event.pressed) {
@@ -241,6 +254,24 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 SEND_STRING(" ");
                 return false;
             }
+            break;
+
+        case PUNC_ESC:
+        case PUNC_QUO:
+            if (record->event.pressed) {
+                is_punc = true;
+            } else {
+                if (!punc_used) {
+                    //tap esc/quo
+                    tap_code(KC_ESC);
+                }
+
+                is_punc = false;
+                punc_used = false;
+                return false;
+            }
+
+
             break;
     }
     return true;
