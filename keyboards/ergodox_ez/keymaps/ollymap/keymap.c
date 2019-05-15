@@ -20,8 +20,7 @@ enum custom_keycodes {
     CLEFT,
     CRIGHT,
     RAND,
-    PUNC_ESC,
-    PUNC_QUO
+    PUNC_SWITCH,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -29,7 +28,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // left hand
         KC_NO,      KC_NO,    KC_NO,   KC_NO,       KC_NO,   KC_NO,   KC_F3,
         KC_TAB,     KC_Q,     KC_W,    KC_F,        KC_P,    KC_G,    KC_NO,
-        PUNC_ESC,   KC_A, KC_R,    KC_S,        KC_T,    KC_D,
+        PUNC_SWITCH,KC_A, KC_R,    KC_S,        KC_T,    KC_D,
         KC_LSFT,    KC_Z,     KC_X,    KC_C,        KC_V,    KC_B,    KC_NO,
         KC_LCTRL,   KC_LGUI,  KC_LALT, MO(NUM),     KC_DEL,
                                                              KC_F12,  KC_F8,
@@ -38,7 +37,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // right hand
         KC_F5,      KC_NO,    KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
         KC_NO,      KC_J,     KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_NO,
-                    KC_H,     KC_N,    KC_E,    KC_I,    KC_O,    PUNC_QUO,
+                    KC_H,     KC_N,    KC_E,    KC_I,    KC_O,    MO(PUNC),
         KC_NO,      KC_K,     KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
                               MO(FUNCTIONS),RAND,TG(EASY), KC_RGUI, KC_RCTRL,
         KC_F10,     KC_F11,
@@ -50,7 +49,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // left hand
         KC_GRV,     KC_1,     KC_2,    KC_3,        KC_4,    KC_5,    KC_F3,
         KC_TAB,     KC_Q,     KC_W,    KC_F,        KC_P,    KC_G,    KC_NUBS,
-        LT(PUNC,KC_ESC),KC_A, KC_R,    KC_S,        KC_T,    KC_D,
+        PUNC_SWITCH,KC_A, KC_R,    KC_S,        KC_T,    KC_D,
         KC_LSFT,    KC_Z,     KC_X,    KC_C,        KC_V,    KC_B,    KC_NUHS,
         KC_LCTRL,   KC_LGUI,  KC_LALT, MO(NUM),     KC_DEL,
                                                              KC_F12,  KC_F8,
@@ -59,7 +58,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // right hand
         KC_F5,      KC_6,     KC_7,    KC_8,    KC_9,    KC_0,    KC_EQL,
         KC_LBRC,    KC_J,     KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_MINS,
-                    KC_H,     KC_N,    KC_E,    KC_I,    KC_O,    LT(PUNC,KC_QUOT),
+                    KC_H,     KC_N,    KC_E,    KC_I,    KC_O,    MO(PUNC),
         KC_RBRC,    KC_K,     KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
                               MO(FUNCTIONS),RAND,TG(EASY),KC_RGUI, KC_RCTRL,
         KC_F10,     KC_F11,
@@ -146,8 +145,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // right hand
        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,       KC_TRNS, KC_TRNS, KC_TRNS,
 	   KC_TRNS, S(KC_6), S(KC_7), S(KC_8),       S(KC_9), S(KC_0), KC_TRNS,
-                KC_TRNS, S(KC_LBRC),S(KC_RBRC),S(KC_MINS),S(KC_EQL),KC_TRNS,
-       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,       KC_MINS, KC_EQL, KC_TRNS,
+                KC_QUOT, S(KC_LBRC),S(KC_RBRC),  KC_MINS, S(KC_EQL),KC_TRNS,
+       KC_TRNS, S(KC_QUOT),KC_TRNS,KC_TRNS,    S(KC_MINS),KC_EQL, KC_TRNS,
                          KC_TRNS, KC_TRNS,       KC_TRNS, KC_TRNS, KC_TRNS,
        KC_TRNS, KC_TRNS,
        KC_TRNS,
@@ -191,15 +190,10 @@ void matrix_scan_user(void) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    static bool is_punc = false;
-    static bool punc_used = false;
+    static bool key_pressed_since_punc = false;
 
-    if (is_punc == true) {
-
-        // trun on punc layer
-        
-        punc_used = true;
-        return false;
+    if (record->event.pressed) {
+        key_pressed_since_punc = true;
     }
 
     switch (keycode) {
@@ -256,23 +250,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             break;
 
-        case PUNC_ESC:
-        case PUNC_QUO:
+        case  PUNC_SWITCH:
             if (record->event.pressed) {
-                is_punc = true;
+                layer_on(PUNC);
+                key_pressed_since_punc = false;
             } else {
-                if (!punc_used) {
-                    //tap esc/quo
+                layer_off(PUNC);
+
+                if (!key_pressed_since_punc)
                     tap_code(KC_ESC);
-                }
-
-                is_punc = false;
-                punc_used = false;
-                return false;
             }
-
-
-            break;
+            return false;
     }
     return true;
 }
