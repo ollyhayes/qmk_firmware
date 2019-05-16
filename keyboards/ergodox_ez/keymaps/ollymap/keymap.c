@@ -39,7 +39,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_NO,      KC_J,     KC_L,    KC_U,    KC_Y,    KC_SCLN, MO(PUNC),
                     KC_H,     KC_N,    KC_E,    KC_I,    KC_O,    KC_NO,
         KC_NO,      KC_K,     KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
-                              MO(FUNCTIONS),RAND,TG(EASY), KC_RGUI, KC_RCTRL,
+                              KC_NO,   MO(FUNCTIONS),TG(EASY),KC_RGUI, KC_RCTRL,
         KC_F10,     KC_F11,
         KC_INS,
         KC_END,     KC_ENT,   KC_SPC
@@ -252,6 +252,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
         case  PUNC_SWITCH:
             if (record->event.pressed) {
+
+                // unless alt or ctrl is held?
+
                 layer_on(PUNC);
                 key_pressed_since_punc = false;
             } else {
