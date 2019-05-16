@@ -191,6 +191,7 @@ void matrix_scan_user(void) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     static bool key_pressed_since_punc = false;
+    static bool alt_ctrl_held = false;
 
     if (record->event.pressed) {
         key_pressed_since_punc = true;
@@ -253,7 +254,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case  PUNC_SWITCH:
             if (record->event.pressed) {
 
-                // unless alt or ctrl is held?
+                if (alt_ctrl_held) {
+                    tap_code(KC_TAB);
+                    return false;
+                }
 
                 layer_on(PUNC);
                 key_pressed_since_punc = false;
@@ -264,6 +268,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     tap_code(KC_TAB);
             }
             return false;
+
+        case KC_LCTRL:
+        case KC_LALT:
+            alt_ctrl_held = record->event.pressed;
+            break;
     }
     return true;
 }
