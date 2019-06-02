@@ -259,10 +259,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     return false;
                 }
 
-                layer_on(PUNC);
+                layer_on(NUM);
                 key_pressed_since_punc = false;
             } else {
-                layer_off(PUNC);
+                layer_off(NUM);
 
                 if (!key_pressed_since_punc)
                     tap_code(KC_TAB);
