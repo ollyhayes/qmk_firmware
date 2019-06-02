@@ -21,6 +21,8 @@ enum custom_keycodes {
     CRIGHT,
     RAND,
     PUNC_SWITCH,
+    ALTTAB,
+    CTLTAB
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -79,8 +81,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
        KC_TRNS,KC_TRNS,KC_TRNS,KC_KP_SLASH,KC_KP_ASTERISK,KC_KP_MINUS, KC_TRNS,
 	   KC_TRNS,KC_TRNS,KC_7,   KC_8,       KC_9,          KC_KP_PLUS,  KC_TRNS,
-               KC_TRNS,KC_4,   KC_5,       KC_6,          KC_KP_PLUS,  KC_TRNS,
-       KC_TRNS,KC_TRNS,KC_1,   KC_2,       KC_3,          KC_KP_ENTER, KC_TRNS,
+               ALTTAB, KC_4,   KC_5,       KC_6,          KC_KP_PLUS,  KC_TRNS,
+       KC_TRNS,CTLTAB, KC_1,   KC_2,       KC_3,          KC_KP_ENTER, KC_TRNS,
                        KC_0,   KC_0,       KC_DOT,        KC_KP_ENTER, KC_TRNS,
        KC_TRNS,KC_TRNS,
        KC_TRNS,
@@ -191,6 +193,7 @@ void matrix_scan_user(void) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     static bool key_pressed_since_punc = false;
+    static bool alt_ctrl_tab_used = false;
     static bool alt_ctrl_held = false;
 
     if (record->event.pressed) {
@@ -251,7 +254,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             break;
 
-        case  PUNC_SWITCH:
+        case PUNC_SWITCH:
             if (record->event.pressed) {
 
                 if (alt_ctrl_held) {
@@ -264,8 +267,31 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             } else {
                 layer_off(NUM);
 
-                if (!key_pressed_since_punc)
+                if (!key_pressed_since_punc) {
                     tap_code(KC_TAB);
+                }
+
+                if (alt_ctrl_tab_used) {
+                    unregister_code(KC_LALT);
+                    unregister_code(KC_LCTRL);
+                    alt_ctrl_tab_used = false;
+                }
+            }
+            return false;
+        
+        case ALTTAB:
+            if (record->event.pressed) {
+                alt_ctrl_tab_used = true;
+                register_code(KC_LALT);
+                tap_code(KC_TAB);
+            }
+            return false;
+
+        case CTLTAB:
+            if (record->event.pressed) {
+                alt_ctrl_tab_used = true;
+                register_code(KC_LCTRL);
+                tap_code(KC_TAB);
             }
             return false;
 
