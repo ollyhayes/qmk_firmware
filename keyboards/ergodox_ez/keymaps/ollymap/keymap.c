@@ -20,7 +20,7 @@ enum custom_keycodes {
     CLEFT,
     CRIGHT,
     RAND,
-    PUNC_SWITCH,
+    NUM_SWITCH,
     ALTTAB,
     CTLTAB
 };
@@ -29,7 +29,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [BASE] = LAYOUT_ergodox(  // layer 0 : default
         // left hand
         KC_NO,      KC_NO,    KC_NO,   KC_NO,       KC_NO,   KC_NO,   KC_F3,
-        PUNC_SWITCH,KC_Q,     KC_W,    KC_F,        KC_P,    KC_G,    KC_NO,
+        NUM_SWITCH, KC_Q,     KC_W,    KC_F,        KC_P,    KC_G,    KC_NO,
         KC_ESC,     KC_A,     KC_R,    KC_S,        KC_T,    KC_D,
         KC_LSFT,    KC_Z,     KC_X,    KC_C,        KC_V,    KC_B,    KC_NO,
         KC_LCTRL,   KC_LGUI,  KC_LALT, KC_DEL,      MO(PUNC),
@@ -50,7 +50,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [EASY] = LAYOUT_ergodox(  // layer 0 : default
         // left hand
         KC_GRV,     KC_1,     KC_2,    KC_3,        KC_4,    KC_5,    KC_F3,
-        PUNC_SWITCH,KC_Q,     KC_W,    KC_F,        KC_P,    KC_G,    KC_NUBS,
+        NUM_SWITCH, KC_Q,     KC_W,    KC_F,        KC_P,    KC_G,    KC_NUBS,
         KC_ESC,     KC_A,     KC_R,    KC_S,        KC_T,    KC_D,
         KC_LSFT,    KC_Z,     KC_X,    KC_C,        KC_V,    KC_B,    KC_NUHS,
         KC_LCTRL,   KC_LGUI,  KC_LALT, KC_DEL,      MO(PUNC),
@@ -192,12 +192,12 @@ void matrix_scan_user(void) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    static bool key_pressed_since_punc = false;
+    static bool key_pressed_since_switch = false;
     static bool alt_ctrl_tab_used = false;
     static bool alt_ctrl_held = false;
 
     if (record->event.pressed) {
-        key_pressed_since_punc = true;
+        key_pressed_since_switch = true;
     }
 
     switch (keycode) {
@@ -254,7 +254,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             break;
 
-        case PUNC_SWITCH:
+        case NUM_SWITCH:
             if (record->event.pressed) {
 
                 if (alt_ctrl_held) {
@@ -263,11 +263,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 }
 
                 layer_on(NUM);
-                key_pressed_since_punc = false;
+                key_pressed_since_switch = false;
             } else {
                 layer_off(NUM);
 
-                if (!key_pressed_since_punc) {
+                if (!key_pressed_since_switch) {
                     tap_code(KC_TAB);
                 }
 
