@@ -82,7 +82,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_TRNS,KC_TRNS,KC_TRNS,KC_KP_SLASH,KC_KP_ASTERISK,KC_KP_MINUS, KC_TRNS,
 	   KC_TRNS,KC_TRNS,KC_7,   KC_8,       KC_9,          KC_KP_PLUS,  KC_TRNS,
                ALTTAB, KC_4,   KC_5,       KC_6,          KC_KP_PLUS,  KC_TRNS,
-       KC_TRNS,CTLTAB, KC_1,   KC_2,       KC_3,          KC_KP_ENTER, KC_TRNS,
+       KC_TRNS,KC_TRNS,KC_1,   KC_2,       KC_3,          KC_KP_ENTER, KC_TRNS,
                        KC_0,   KC_0,       KC_DOT,        KC_KP_ENTER, KC_TRNS,
        KC_TRNS,KC_TRNS,
        KC_TRNS,
@@ -93,7 +93,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        // left hand
        KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
 	   KC_TRNS,KC_TRNS,KC_F7,  KC_F8,  KC_F9,  KC_TRNS,KC_TRNS,
-       KC_TRNS,KC_TRNS,KC_F4,  KC_F5,  KC_F4,  KC_TRNS,
+       KC_TRNS,KC_TRNS,KC_F4,  KC_F5,  KC_F4,  CTLTAB,
        KC_TRNS,KC_TRNS,KC_F1,  KC_F2,  KC_F3,  KC_TRNS,KC_TRNS,
        KC_TRNS,KC_TRNS,KC_F10, KC_F11, KC_F12, 
                                                KC_TRNS,KC_TRNS,
@@ -254,6 +254,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             break;
 
+        case MO(FUNCTIONS):
+            if (!record->event.pressed && alt_ctrl_tab_used) {
+                unregister_code(KC_LCTRL);
+                alt_ctrl_tab_used = false;
+            }
+            return true;
+
         case NUM_SWITCH:
             if (record->event.pressed) {
 
@@ -273,7 +280,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
                 if (alt_ctrl_tab_used) {
                     unregister_code(KC_LALT);
-                    unregister_code(KC_LCTRL);
                     alt_ctrl_tab_used = false;
                 }
             }
