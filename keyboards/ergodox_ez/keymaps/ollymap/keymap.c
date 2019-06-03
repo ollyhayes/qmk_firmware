@@ -22,7 +22,9 @@ enum custom_keycodes {
     RAND,
     NUM_SWITCH,
     ALTTAB,
-    CTLTAB
+    CTLTAB,
+    SALTTAB,
+    SCTLTAB,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -82,7 +84,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_TRNS,KC_TRNS,KC_TRNS,KC_KP_SLASH,KC_KP_ASTERISK,KC_KP_MINUS, KC_TRNS,
 	   KC_TRNS,KC_TRNS,KC_7,   KC_8,       KC_9,          KC_KP_PLUS,  KC_TRNS,
                ALTTAB, KC_4,   KC_5,       KC_6,          KC_KP_PLUS,  KC_TRNS,
-       KC_TRNS,KC_TRNS,KC_1,   KC_2,       KC_3,          KC_KP_ENTER, KC_TRNS,
+       KC_TRNS,SALTTAB,KC_1, KC_2,       KC_3,          KC_KP_ENTER, KC_TRNS,
                        KC_0,   KC_0,       KC_DOT,        KC_KP_ENTER, KC_TRNS,
        KC_TRNS,KC_TRNS,
        KC_TRNS,
@@ -94,7 +96,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
 	   KC_TRNS,KC_TRNS,KC_F7,  KC_F8,  KC_F9,  KC_TRNS,KC_TRNS,
        KC_TRNS,KC_TRNS,KC_F4,  KC_F5,  KC_F4,  CTLTAB,
-       KC_TRNS,KC_TRNS,KC_F1,  KC_F2,  KC_F3,  KC_TRNS,KC_TRNS,
+       KC_TRNS,KC_TRNS,KC_F1,  KC_F2,  KC_F3,  SCTLTAB,KC_TRNS,
        KC_TRNS,KC_TRNS,KC_F10, KC_F11, KC_F12, 
                                                KC_TRNS,KC_TRNS,
                                                        KC_TRNS,
@@ -292,12 +294,30 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 tap_code(KC_TAB);
             }
             return false;
+        case SALTTAB:
+            if (record->event.pressed) {
+                alt_ctrl_tab_used = true;
+                register_code(KC_LALT);
+                register_code(KC_LSFT);
+                tap_code(KC_TAB);
+                unregister_code(KC_LSFT);
+            }
+            return false;
 
         case CTLTAB:
             if (record->event.pressed) {
                 alt_ctrl_tab_used = true;
                 register_code(KC_LCTRL);
                 tap_code(KC_TAB);
+            }
+            return false;
+        case SCTLTAB:
+            if (record->event.pressed) {
+                alt_ctrl_tab_used = true;
+                register_code(KC_LCTRL);
+                register_code(KC_LSFT);
+                tap_code(KC_TAB);
+                unregister_code(KC_LSFT);
             }
             return false;
 
