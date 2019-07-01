@@ -53,6 +53,11 @@ enum custom_keycodes {
 #define KC_LVAD  RGB_VAD
 #define KC_LMOD  RGB_MOD
 
+// windows key
+// qwerty layer
+// del & insert
+// should ctrl be moved?
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [BASE] = LAYOUT( \
   //,-----------------------------------------.                ,-----------------------------------------.
@@ -96,7 +101,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|------+------+------+------+------+------|                ---+------+------+------|       ---+------|
       KC_TRNS,KC_TRNS,KC_LEFT,KC_UP,  KC_DOWN,KC_RGHT,         KC_LEFT,KC_DOWN,KC_UP,  KC_RGHT,KC_TRNS,KC_TRNS,\
   //|------+------+------+------+------+------|                ---+------+------+------|       ---+------|
-      KC_TRNS,KC_TRNS,CLEFT,  UP3,    DOWN3,  CRIGHT,          CLEFT,  DOWN3,  UP3,    CLEFT,  KC_TRNS,KC_TRNS,\
+      KC_TRNS,KC_TRNS,CLEFT,  UP3,    DOWN3,  CRIGHT,          CLEFT,  DOWN3,  UP3,    CRIGHT,  KC_TRNS,KC_TRNS,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
                                   KC_TRNS, KC_TRNS,   KC_TRNS,      KC_TRNS, KC_TRNS, KC_TRNS \
                               //`--------------------'  `--------------------'
