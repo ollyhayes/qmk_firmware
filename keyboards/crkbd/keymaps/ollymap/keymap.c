@@ -73,7 +73,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [NUM] = LAYOUT( \
   //,-----------------------------------------.                ,-----------------------------------------.
-      KC_TRNS,KC_TRNS,KC_7,KC_8,KC_9,KC_TRNS,          KC_TRNS,KC_7,KC_8,KC_9,KC_TRNS,KC_TRNS,\
+      KC_TRNS,KC_LGUI,KC_7,KC_8,KC_9,KC_TRNS,          KC_TRNS,KC_7,KC_8,KC_9,KC_TRNS,KC_TRNS,\
   //|------+------+------+------+------+------|                ---+------+--------+------+------|
       KC_TRNS,KC_TRNS,KC_4,KC_5,KC_6,KC_TRNS,          ALTTAB,KC_4,KC_5,KC_6,KC_TRNS,KC_TRNS,\
   //|------+------+------+------+------+------|                ---+------+--------+------+------|
@@ -97,7 +97,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [ARR] = LAYOUT( \
   //,-----------------------------------------.                ,-----------------------------------------.
-      KC_TRNS,KC_TRNS,KC_HOME,KC_PGUP,KC_PGDN,KC_END,          KC_HOME,KC_PGDN,KC_PGUP,KC_END, KC_TRNS,KC_BSPC,\
+      RESET,KC_TRNS,KC_HOME,KC_PGUP,KC_PGDN,KC_END,          KC_HOME,KC_PGDN,KC_PGUP,KC_END, KC_TRNS,KC_BSPC,\
   //|------+------+------+------+------+------|                ---+------+------+------|       ---+------|
       KC_TRNS,KC_TRNS,KC_LEFT,KC_UP,  KC_DOWN,KC_RGHT,         KC_LEFT,KC_DOWN,KC_UP,  KC_RGHT,KC_TRNS,KC_TRNS,\
   //|------+------+------+------+------+------|                ---+------+------+------|       ---+------|
