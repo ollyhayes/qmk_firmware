@@ -150,7 +150,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TRNS, KC_TRNS,   KC_TRNS,   KC_TRNS,    KC_TRNS, KC_TRNS, KC_TRNS,
 	    KC_TRNS, S(KC_6),   S(KC_7),   S(KC_8),    S(KC_9), S(KC_0), KC_TRNS,
                  KC_QUOT,   S(KC_LBRC),S(KC_RBRC), KC_MINS, S(KC_EQL),KC_TRNS,
-        KC_TRNS, S(KC_QUOT),KC_TRNS,   KC_TRNS,    S(KC_MINS),KC_EQL, KC_TRNS,
+        KC_TRNS, S(KC_QUOT),KC_LBRC,   KC_RBRC,    S(KC_MINS),KC_EQL, KC_TRNS,
                  KC_TRNS,   KC_TRNS,   KC_TRNS,    KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS,
         KC_TRNS,
