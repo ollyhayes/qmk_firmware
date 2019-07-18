@@ -5,12 +5,12 @@
 #include <avr/pgmspace.h>
 #include "words.c"
 
-#define BASE 0 // default layer
-// #define EASY 1 // default layer
-#define NUM 2 // symbols
-#define FUNCTIONS 3 // symbols
-#define ARR 4 // symbols
-#define PUNC 5 // symbols
+#define BASE 0
+#define QWERTY 1
+#define NUM 2
+#define FUNCTIONS 3
+#define ARR 4
+#define PUNC 5
 
 typedef enum onoff_t {OFF, ON} onoff;
 
@@ -49,30 +49,31 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_END,     KC_ENT,   KC_SPC
     ),
 
-    // [EASY] = LAYOUT_ergodox(  // layer 0 : default
-    //     // left hand
-    //     KC_GRV,     KC_1,     KC_2,    KC_3,        KC_4,    KC_5,    KC_F3,
-    //     NUM_SWITCH, KC_Q,     KC_W,    KC_F,        KC_P,    KC_G,    KC_NUBS,
-    //     KC_ESC,     KC_A,     KC_R,    KC_S,        KC_T,    KC_D,
-    //     KC_LSFT,    KC_Z,     KC_X,    KC_C,        KC_V,    KC_B,    KC_NUHS,
-    //     KC_LCTRL,   KC_LGUI,  KC_LALT, KC_DEL,      MO(PUNC),
-    //                                                          KC_F12,  KC_F8,
-    //                                                                   LSFT(KC_F2),
-    //                                                 KC_BSPC, MO(ARR), KC_HOME,
-    //     // right hand
-    //     KC_F5,      KC_6,     KC_7,    KC_8,    KC_9,    KC_0,    KC_EQL,
-    //     KC_LBRC,    KC_J,     KC_L,    KC_U,    KC_Y,    KC_SCLN, MO(FUNCTIONS),
-    //                 KC_H,     KC_N,    KC_E,    KC_I,    KC_O,    KC_NO,
-    //     KC_RBRC,    KC_K,     KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
-    //                           MO(PUNC),RAND,    TG(EASY),KC_RGUI, KC_RCTRL,
-    //     KC_F10,     KC_F11,
-    //     KC_INS,
-    //     KC_END,     KC_ENT,   KC_SPC
-    // ),
+    [QWERTY] = LAYOUT_ergodox(  // layer 0 : default
+        // left hand
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_Q,    KC_W,    KC_E,        KC_R,    KC_T,KC_TRNS,
+        KC_TRNS, KC_A,    KC_S,    KC_D,        KC_F,    KC_G,
+        KC_TRNS, KC_Z,    KC_X,    KC_C,        KC_V,    KC_B,KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                                                    KC_TRNS, KC_TRNS,
+                                                             KC_TRNS,
+                                           KC_TRNS, KC_TRNS, KC_TRNS,
+
+        // RIGHT HAND
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_TRNS,
+                 KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_TRNS,
+        KC_TRNS, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_TRNS,
+                         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS,
+        KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS
+    ),
 
     [NUM] = LAYOUT_ergodox(
        // left hand
-       RESET,  KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
+       KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
 	   KC_TRNS,KC_TRNS,KC_7,KC_8,KC_9,KC_TRNS,KC_TRNS,
        KC_TRNS,KC_TRNS,KC_4,KC_5,KC_6,KC_TRNS,
        KC_TRNS,KC_TRNS,KC_1,KC_2,KC_3,KC_TRNS,KC_TRNS,
@@ -93,11 +94,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [FUNCTIONS] = LAYOUT_ergodox(
        // left hand
-       KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
+       RESET,  KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
        KC_TRNS,KC_TRNS,KC_F7,  KC_F8,  KC_F9,  C(KC_GRV),KC_TRNS,
-       KC_TRNS,KC_TRNS,KC_F4,  KC_F5,  KC_F4,  CTLTAB,
-       KC_TRNS,KC_TRNS,KC_F1,  KC_F2,  KC_F3,  SCTLTAB,KC_TRNS,
-       KC_TRNS,KC_TRNS,KC_F10, KC_F11, KC_F12, 
+       DF(QWERTY),KC_TRNS,KC_F4,  KC_F5,  KC_F4,  CTLTAB,
+       DF(BASE),KC_TRNS,KC_F1,KC_F2, KC_F3,  SCTLTAB,KC_TRNS,
+       KC_TRNS,KC_TRNS,KC_F10,KC_F11, KC_F12, 
                                                KC_TRNS,KC_TRNS,
                                                        KC_TRNS,
                                        KC_TRNS,KC_TRNS,KC_TRNS,
