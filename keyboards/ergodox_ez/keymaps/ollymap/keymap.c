@@ -25,7 +25,6 @@ enum custom_keycodes {
     CTLTAB,
     SALTTAB,
     SCTLTAB,
-    ARRBACK
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -38,7 +37,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LCTRL,   KC_LGUI,  KC_LALT, KC_LCTRL,    MO(PUNC),
                                                              KC_F12,  KC_F8,
                                                                       LSFT(KC_F2),
-                                                    ARRBACK, MO(ARR), KC_HOME,
+                                                    KC_BSPC, MO(ARR), KC_HOME,
         // right hand
         KC_F5,      KC_6,     KC_7,    KC_8,    KC_9,    KC_0,    KC_EQL,
         KC_VOLU,    KC_J,     KC_L,    KC_U,    KC_Y,    KC_SCLN, MO(FUNCTIONS),
@@ -285,19 +284,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 if (alt_ctrl_tab_used) {
                     unregister_code(KC_LALT);
                     alt_ctrl_tab_used = false;
-                }
-            }
-            return false;
-
-        case ARRBACK:
-            if (record->event.pressed) {
-                layer_on(ARR);
-                key_pressed_since_switch = false;
-            } else {
-                layer_off(ARR);
-
-                if (!key_pressed_since_switch) {
-                    tap_code(KC_BSPC);
                 }
             }
             return false;
