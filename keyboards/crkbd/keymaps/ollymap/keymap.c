@@ -36,7 +36,6 @@ enum custom_keycodes {
   CTLTAB,
   SALTTAB,
   SCTLTAB,
-  ARRBACK,
   ADJUST,
   BACKLIT,
   RGBRST
@@ -64,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
        KC_LSFT,     KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,                      KC_K,     KC_M,  KC_COMM,   KC_DOT,  KC_SLSH,  KC_RSFT,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
-                                  KC_LCTRL,MO(PUNC),ARRBACK,      KC_SPC, MO(PUNC), KC_RCTRL\
+                                  KC_LCTRL,MO(PUNC),LT(ARR, KC_BSPC),      KC_SPC, MO(PUNC), KC_RCTRL\
                               //`--------------------'  `--------------------'
   ),
 
@@ -241,19 +240,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if (alt_ctrl_tab_used) {
                 unregister_code(KC_LALT);
                 alt_ctrl_tab_used = false;
-            }
-        }
-        return false;
-
-    case ARRBACK:
-        if (record->event.pressed) {
-            layer_on(ARR);
-            key_pressed_since_switch = false;
-        } else {
-            layer_off(ARR);
-
-            if (!key_pressed_since_switch) {
-                tap_code(KC_BSPC);
             }
         }
         return false;
