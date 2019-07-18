@@ -55,9 +55,6 @@ enum custom_keycodes {
 #define KC_LVAD  RGB_VAD
 #define KC_LMOD  RGB_MOD
 
-// move backspace to be on the same key as the functions button
-// move del/ins to be on the same key as ctrl?
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [BASE] = LAYOUT( \
   //,-----------------------------------------.                ,-----------------------------------------.
