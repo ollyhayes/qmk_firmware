@@ -17,13 +17,14 @@ extern rgblight_config_t rgblight_config;
 
 extern uint8_t is_master;
 
-#define BASE 0 // default layer
-#define QWERTY 1 // default layer
-#define NUM 2 // symbols
-#define FUNCTIONS 3 // symbols
-#define ARR 4 // symbols
-#define PUNC 5 // symbols
-#define _ADJUST 6
+#define BASE 0
+#define QWERTY 1
+#define NUM 2
+#define FUNCTIONS 3
+#define ARR 4
+#define PUNC 5
+#define MEDIA 6
+#define _ADJUST 7
 
 enum custom_keycodes {
   DOWN3 = SAFE_RANGE,
@@ -93,7 +94,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [FUNCTIONS] = LAYOUT( \
   //,-----------------------------------------.                ,-----------------------------------------.
-      RESET,KC_TRNS,KC_F7,KC_F8,KC_F9,KC_F12,       KC_F12,KC_F7,KC_F8,KC_F9,KC_TRNS,KC_TRNS,\
+      RESET,KC_TRNS,MO(MEDIA),KC_F8,KC_F9,KC_F12,       KC_F12,KC_F7,KC_F8,KC_F9,KC_TRNS,KC_TRNS,\
   //|------+------+------+------+----|                |------+-------+------+----|  ------|
       DF(QWERTY),KC_TRNS,KC_F4,KC_F5,KC_F6,KC_F11,          KC_F11,KC_F4,KC_F5,KC_F6,KC_TRNS,KC_TRNS,\
   //|------+------+------+------+----|                |------+-------+------+----|  ------|
@@ -126,7 +127,33 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                   KC_TRNS, KC_TRNS,   KC_TRNS,      KC_TRNS, KC_TRNS, KC_TRNS \
                               //`--------------------'  `--------------------'
   ),
+
+  [MEDIA] = LAYOUT( \
+  //,-----------------------------------------.                ,-----------------------------------------.
+      KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,                KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_WAKE,KC_SLEP,\
+  //|------+------+------+------+------+------|                                |------+------+------+------+------+------|
+      KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,                KC_TRNS,KC_VOLD,KC_VOLU,KC_TRNS,KC_TRNS,KC_CALC,\
+  //|------+------+------+------+------+------|                                |------+------+------+------+------+------|
+      KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,                KC_TRNS,KC_MPRV,KC_MNXT,KC_MPLY,KC_TRNS,KC_TRNS,\
+  //|------+------+------+------+------+------+------|                  |------+------+------+------+------+------+------|
+                                  KC_TRNS, KC_TRNS,                   KC_TRNS,      KC_TRNS, KC_TRNS, KC_TRNS \
+                              //`--------------------'  `--------------------'
+  ),
 };
+
+/*
+  [TEMPLATE] = LAYOUT( \
+  //,-----------------------------------------.                ,-----------------------------------------.
+      KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,                KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,\
+  //|------+------+------+------+------+------|                                |------+------+------+------+------+------|
+      KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,                KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,\
+  //|------+------+------+------+------+------|                                |------+------+------+------+------+------|
+      KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,                KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,\
+  //|------+------+------+------+------+------+------|                  |------+------+------+------+------+------+------|
+                                  KC_TRNS, KC_TRNS,                   KC_TRNS,      KC_TRNS, KC_TRNS, KC_TRNS \
+                              //`--------------------'  `--------------------'
+  ),
+  */
 
 int RGB_current_mode;
 
