@@ -179,6 +179,7 @@ void matrix_init_user(void) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     static bool key_pressed_since_switch = false;
+    static uint16_t switch_down_time = 0;
     static bool alt_ctrl_tab_used = false;
 
     if (record->event.pressed) {
@@ -250,10 +251,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         if (record->event.pressed) {
             layer_on(NUM);
             key_pressed_since_switch = false;
+            switch_down_time = timer_read();
         } else {
             layer_off(NUM);
 
-            if (!key_pressed_since_switch) {
+            if (!key_pressed_since_switch && timer_elapsed(switch_down_time) < 100) {
                 tap_code(KC_TAB);
             }
 
