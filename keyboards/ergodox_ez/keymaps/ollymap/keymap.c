@@ -258,13 +258,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             break;
 
-        case MO(FUNCTIONS):
-            if (!record->event.pressed && alt_ctrl_tab_used) {
-                unregister_code(KC_LCTRL);
-                alt_ctrl_tab_used = false;
-            }
-            return true;
-
         case NUM_SWITCH:
             if (record->event.pressed) {
                 layer_on(NUM);
@@ -283,6 +276,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 }
             }
             return false;
+
+    case MO(FUNCTIONS):
+        if (!record->event.pressed) {
+            // if NUM_SWITCH has been lifted first, toggle to that layer
+            // (4 = 2^NUM)
+            if ((layer_state & 4) != 0) {
+                layer_on(FUNCTIONS);
+                return false;
+            }
+        }
+        return true;
         
         case ALTTAB:
             if (record->event.pressed) {
