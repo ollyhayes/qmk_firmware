@@ -94,11 +94,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [FUNCTIONS] = LAYOUT( \
   //,-----------------------------------------.                ,-----------------------------------------.
-      RESET,KC_TRNS,MO(MEDIA),KC_F8,KC_F9,KC_F12,       KC_F12,KC_F7,KC_F8,KC_F9,KC_TRNS,KC_TRNS,\
+      KC_TRNS,KC_TRNS,MO(MEDIA),KC_F8,KC_F9,KC_F12,       KC_F12,KC_F7,KC_F8,KC_F9,KC_TRNS,KC_TRNS,\
   //|------+------+------+------+----|                |------+-------+------+----|  ------|
-      DF(QWERTY),KC_TRNS,KC_F4,KC_F5,KC_F6,KC_F11,          KC_F11,KC_F4,KC_F5,KC_F6,KC_TRNS,KC_TRNS,\
+      TG(FUNCTIONS),KC_TRNS,KC_F4,KC_F5,KC_F6,KC_F11,          KC_F11,KC_F4,KC_F5,KC_F6,KC_TRNS,KC_TRNS,\
   //|------+------+------+------+----|                |------+-------+------+----|  ------|
-      DF(BASE),KC_TRNS,KC_F1,KC_F2,KC_F3,KC_F10,         KC_F10,KC_F1,KC_F2,KC_F3,KC_TRNS,KC_TRNS,\
+      KC_TRNS,KC_TRNS,KC_F1,KC_F2,KC_F3,KC_F10,         KC_F10,KC_F1,KC_F2,KC_F3,KC_TRNS,KC_TRNS,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
                                   KC_TRNS, KC_TRNS,   KC_TRNS,      KC_TRNS, KC_TRNS, KC_TRNS \
                               //`--------------------'  `--------------------'
@@ -130,11 +130,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [MEDIA] = LAYOUT( \
   //,-----------------------------------------.                ,-----------------------------------------.
-      KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,                KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_WAKE,KC_SLEP,\
+      RESET,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,                KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_WAKE,KC_SLEP,\
   //|------+------+------+------+------+------|                                |------+------+------+------+------+------|
-      KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,                KC_TRNS,KC_VOLD,KC_VOLU,KC_TRNS,KC_TRNS,KC_CALC,\
+      DF(QWERTY),KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,                KC_TRNS,KC_VOLD,KC_VOLU,KC_TRNS,KC_TRNS,KC_CALC,\
   //|------+------+------+------+------+------|                                |------+------+------+------+------+------|
-      KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,                KC_TRNS,KC_MPRV,KC_MNXT,KC_MPLY,KC_TRNS,KC_TRNS,\
+      DF(BASE),KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,                KC_TRNS,KC_MPRV,KC_MNXT,KC_MPLY,KC_TRNS,KC_TRNS,\
   //|------+------+------+------+------+------+------|                  |------+------+------+------+------+------+------|
                                   KC_TRNS, KC_TRNS,                   KC_TRNS,      KC_TRNS, KC_TRNS, KC_TRNS \
                               //`--------------------'  `--------------------'
@@ -240,13 +240,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     //     }
     //     break;
 
-    case MO(FUNCTIONS):
-        if (!record->event.pressed && alt_ctrl_tab_used) {
-            unregister_code(KC_LCTRL);
-            alt_ctrl_tab_used = false;
-        }
-        return true;
-
     case NUM_SWITCH:
         if (record->event.pressed) {
             layer_on(NUM);
@@ -265,6 +258,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
         }
         return false;
+
+    case MO(FUNCTIONS):
+        if (!record->event.pressed) {
+            // if NUM_SWITCH has been lifted first, toggle to that layer
+            // (4 = 2^NUM)
+            if ((layer_state & 4) != 0) {
+                layer_on(FUNCTIONS);
+                return false;
+            }
+        }
+        return true;
     
     case ALTTAB:
         if (record->event.pressed) {

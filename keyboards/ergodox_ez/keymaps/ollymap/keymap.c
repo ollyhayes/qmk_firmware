@@ -179,6 +179,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 // Runs constantly in the background, in a loop.
+// can switch this for layer_state_set_user
 void matrix_scan_user(void) {
     uint8_t layer = biton32(layer_state);
     static uint8_t oldlayer = 0;
