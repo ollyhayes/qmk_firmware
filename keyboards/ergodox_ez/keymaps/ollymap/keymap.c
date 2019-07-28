@@ -272,7 +272,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             } else {
                 layer_off(NUM);
 
-                if (!key_pressed_since_switch && timer_elapsed(switch_down_time) < 100) {
+                if (!key_pressed_since_switch && timer_elapsed(switch_down_time) < 200) {
                     tap_code(KC_TAB);
                 }
 
