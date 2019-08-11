@@ -1,5 +1,6 @@
 #include "ollymap.h"
 #include "version.h"
+#include "words.c"
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     static bool key_pressed_since_switch = false;
