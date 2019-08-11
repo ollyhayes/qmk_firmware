@@ -49,20 +49,20 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             break;
         
-        // case RAND: ;
-        //     if (record->event.pressed) {
-        //       //send_string(words[rand() % wordCount]);
-        // //need to get this out of program space
-        // //http://www.nongnu.org/avr-libc/user-manual/pgmspace.html
+        case RAND: ;
+            if (record->event.pressed) {
+	            //send_string(words[rand() % wordCount]);
+				//need to get this out of program space
+				//http://www.nongnu.org/avr-libc/user-manual/pgmspace.html
 
-        // char buffer[15];// = "test";
+				char buffer[15];// = "test";
 
-        // strcpy_P(buffer, (PGM_P)pgm_read_word(&(words_table[rand() % wordCount])));
-        //         send_string(buffer);
-        //         SEND_STRING(" ");
-        //         return false;
-        //     }
-        //     break;
+				strcpy_P(buffer, (PGM_P)pgm_read_word(&(words_table[rand() % wordCount])));
+                send_string(buffer);
+                SEND_STRING(" ");
+                return false;
+            }
+            break;
 
         case NUM_SWITCH:
             if (record->event.pressed) {
@@ -83,16 +83,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             return false;
 
-        case MO(FUNCTIONS):
-            if (!record->event.pressed) {
-                // if NUM_SWITCH has been lifted first, toggle to that layer
-                // (4 = 2^NUM)
-                if ((layer_state & 4) != 0) {
-                    layer_on(FUNCTIONS);
-                    return false;
-                }
+    case MO(FUNCTIONS):
+        if (!record->event.pressed) {
+            // if NUM_SWITCH has been lifted first, toggle to that layer
+            // (4 = 2^NUM)
+            if ((layer_state & 4) != 0) {
+                layer_on(FUNCTIONS);
+                return false;
             }
-            return true;
+        }
+        return true;
         
         case ALTTAB:
             if (record->event.pressed) {
