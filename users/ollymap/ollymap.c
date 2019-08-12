@@ -77,6 +77,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     tap_code(KC_TAB);
                 }
 
+                // Need this or normal alt-tab doesn't work
                 if (alt_ctrl_tab_used) {
                     unregister_code(KC_LALT);
                     alt_ctrl_tab_used = false;
@@ -84,16 +85,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             return false;
 
-    case MO(FUNCTIONS):
-        if (!record->event.pressed) {
-            // if NUM_SWITCH has been lifted first, toggle to that layer
-            // (4 = 2^NUM)
-            if ((layer_state & 4) != 0) {
-                layer_on(FUNCTIONS);
-                return false;
+        case MO(FUNCTIONS):
+            if (!record->event.pressed) {
+                // if NUM_SWITCH has been lifted first, toggle to that layer
+                // (4 = 2^NUM)
+                if ((layer_state & 4) != 0) {
+                    layer_on(FUNCTIONS);
+                    return false;
+                }
             }
-        }
-        return true;
+            return true;
         
         case ALTTAB:
             if (record->event.pressed) {
@@ -128,6 +129,30 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 unregister_code(KC_LSFT);
             }
             return false;
+
+        // was going to make holding both controls also hold alt. went all screwy though
+        // case KC_LCTRL:
+        //     if (record->event.pressed) {
+        //         if (keyboard_report->mods & MOD_BIT(KC_RCTRL)) {
+        //             register_code(KC_LALT);
+        //         }
+        //     } else {
+        //         if (!(keyboard_report->mods & MOD_BIT(KC_LALT))) {
+        //             unregister_code(KC_LALT);
+        //         }
+        //     }
+        //     break;
+        // case KC_RCTRL: // should be able to combine these
+        //     if (record->event.pressed) {
+        //         if (keyboard_report->mods & MOD_BIT(KC_LCTRL)) {
+        //             register_code(KC_LALT);
+        //         }
+        //     } else {
+        //         if (!(keyboard_report->mods & MOD_BIT(KC_LALT))) {
+        //             unregister_code(KC_LALT);
+        //         }
+        //     }
+        //     break;
 
         case ADJUST:
             if (record->event.pressed) {
