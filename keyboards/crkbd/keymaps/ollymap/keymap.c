@@ -55,7 +55,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------.                ,-----------------------------------------.
       KC_TRNS,MO(FUNCTIONS),KC_7,KC_8,KC_9,KC_TRNS,    C(KC_GRV),KC_7,KC_8,KC_9,KC_TRNS,KC_TRNS,\
   //|------+------+------+------+------+------|                ---+------+--------+------+------|
-      KC_TRNS,KC_TRNS,KC_4,KC_5,KC_6,KC_TRNS,          ALTTAB,KC_4,KC_5,KC_6,KC_TRNS,KC_TRNS,\
+      KC_TRNS,MO(MEDIA),KC_4,KC_5,KC_6,KC_TRNS,          ALTTAB,KC_4,KC_5,KC_6,KC_TRNS,KC_TRNS,\
   //|------+------+------+------+------+------|                ---+------+--------+------+------|
       KC_TRNS,   KC_0,KC_1,KC_2,KC_3,KC_TRNS,          SALTTAB,KC_1,KC_2,KC_3,KC_TRNS,KC_TRNS,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
@@ -65,7 +65,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [FUNCTIONS] = LAYOUT( \
   //,-----------------------------------------.                ,-----------------------------------------.
-      KC_TRNS,KC_TRNS,MO(MEDIA),KC_F8,KC_F9,KC_F12,       KC_F12,KC_F7,KC_F8,KC_F9,KC_TRNS,KC_TRNS,\
+      KC_TRNS,KC_TRNS,KC_TRNS,KC_F8,KC_F9,KC_F12,       KC_F12,KC_F7,KC_F8,KC_F9,KC_TRNS,KC_TRNS,\
   //|------+------+------+------+----|                |------+-------+------+----|  ------|
       TG(FUNCTIONS),KC_TRNS,KC_F4,KC_F5,KC_F6,KC_F11,     KC_F11,KC_F4,KC_F5,KC_F6,KC_TRNS,KC_TRNS,\
   //|------+------+------+------+----|                |------+-------+------+----|  ------|
@@ -103,7 +103,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------.                ,-----------------------------------------.
       RESET,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,                KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_WAKE,KC_SLEP,\
   //|------+------+------+------+------+------|                                |------+------+------+------+------+------|
-      DF(QWERTY),KC_TRNS,KC_TRNS,KC_VOLU,KC_VOLD,KC_TRNS,                KC_TRNS,KC_VOLD,KC_VOLU,KC_TRNS,KC_TRNS,KC_CALC,\
+      DF(QWERTY),KC_TRNS,KC_CALC,KC_VOLU,KC_VOLD,KC_TRNS,                KC_TRNS,KC_VOLD,KC_VOLU,KC_TRNS,KC_TRNS,KC_CALC,\
   //|------+------+------+------+------+------|                                |------+------+------+------+------+------|
       DF(BASE),KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,                KC_TRNS,KC_MPRV,KC_MNXT,KC_MPLY,KC_TRNS,KC_TRNS,\
   //|------+------+------+------+------+------+------|                  |------+------+------+------+------+------+------|
