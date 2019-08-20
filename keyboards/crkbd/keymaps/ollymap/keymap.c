@@ -103,7 +103,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------.                ,-----------------------------------------.
       RESET,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,                KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_WAKE,KC_SLEP,\
   //|------+------+------+------+------+------|                                |------+------+------+------+------+------|
-      DF(QWERTY),KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,                KC_TRNS,KC_VOLD,KC_VOLU,KC_TRNS,KC_TRNS,KC_CALC,\
+      DF(QWERTY),KC_TRNS,KC_TRNS,KC_VOLU,KC_VOLD,KC_TRNS,                KC_TRNS,KC_VOLD,KC_VOLU,KC_TRNS,KC_TRNS,KC_CALC,\
   //|------+------+------+------+------+------|                                |------+------+------+------+------+------|
       DF(BASE),KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,                KC_TRNS,KC_MPRV,KC_MNXT,KC_MPLY,KC_TRNS,KC_TRNS,\
   //|------+------+------+------+------+------+------|                  |------+------+------+------+------+------+------|
