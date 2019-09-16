@@ -13,19 +13,6 @@ extern keymap_config_t keymap_config;
 
 extern uint8_t is_master;
 
-#define KC______ KC_TRNS
-#define KC_XXXXX KC_NO
-#define KC_RST   RESET
-#define KC_LRST  RGBRST
-#define KC_LTOG  RGB_TOG
-#define KC_LHUI  RGB_HUI
-#define KC_LHUD  RGB_HUD
-#define KC_LSAI  RGB_SAI
-#define KC_LSAD  RGB_SAD
-#define KC_LVAI  RGB_VAI
-#define KC_LVAD  RGB_VAD
-#define KC_LMOD  RGB_MOD
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [BASE] = LAYOUT( \
   //,-----------------------------------------.                ,-----------------------------------------.
@@ -101,11 +88,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [MEDIA] = LAYOUT( \
   //,-----------------------------------------.                ,-----------------------------------------.
-      RESET,KC_TRNS,KC_LMOD,KC_LTOG,KC_LHUI,KC_LHUD,                KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_WAKE,KC_SLEP,\
+      RESET,RGB_RMOD,RGB_MOD,RGB_TOG,RGB_HUI,RGB_HUD,                RGB_HUD,RGB_HUI,RGB_TOG,RGB_MOD,RGB_RMOD,KC_SLEP,\
   //|------+------+------+------+------+------|                                |------+------+------+------+------+------|
       DF(QWERTY),KC_TRNS,KC_CALC,KC_VOLU,KC_VOLD,KC_TRNS,                KC_TRNS,KC_VOLD,KC_VOLU,KC_TRNS,KC_TRNS,KC_CALC,\
   //|------+------+------+------+------+------|                                |------+------+------+------+------+------|
-      DF(BASE),KC_TRNS,KC_LVAI,KC_LVAD,KC_LSAI,KC_LSAD,                KC_TRNS,KC_MPRV,KC_MNXT,KC_MPLY,KC_TRNS,KC_TRNS,\
+      DF(BASE),KC_TRNS,RGB_VAI,RGB_VAD,RGB_SAI,RGB_SAD,                RGB_SAD,RGB_SAI,RGB_VAD,RGB_VAI,KC_TRNS,KC_TRNS,\
   //|------+------+------+------+------+------+------|                  |------+------+------+------+------+------+------|
                                   KC_TRNS, KC_TRNS,                   KC_TRNS,      KC_TRNS, KC_TRNS, KC_TRNS \
                               //`--------------------'  `--------------------'
