@@ -1,15 +1,12 @@
 #include QMK_KEYBOARD_H
-#include "bootloader.h"
-#ifdef PROTOCOL_LUFA
-  #include "lufa.h"
-  #include "split_util.h"
-#endif
-#ifdef SSD1306OLED
-  #include "ssd1306.h"
-#endif
 #include "ollymap.h"
 
 extern keymap_config_t keymap_config;
+
+#ifdef RGBLIGHT_ENABLE
+//Following line allows macro to read current RGB settings
+extern rgblight_config_t rgblight_config;
+#endif
 
 extern uint8_t is_master;
 
@@ -113,23 +110,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   */
 
+// int RGB_current_mode;
 
-void persistent_default_layer_set(uint16_t default_layer) {
-  eeconfig_update_default_layer(default_layer);
-  default_layer_set(default_layer);
-}
-
-// Setting ADJUST layer RGB back to default
-void update_tri_layer_RGB(uint8_t layer1, uint8_t layer2, uint8_t layer3) {
-  if (IS_LAYER_ON(layer1) && IS_LAYER_ON(layer2)) {
-    layer_on(layer3);
-  } else {
-    layer_off(layer3);
-  }
-}
-
-void matrix_init_user(void) {
-    #ifdef RGBLIGHT_ENABLE
-      RGB_current_mode = rgblight_config.mode;
-    #endif
-}
+// void matrix_init_user(void) {
+//     #ifdef RGBLIGHT_ENABLE
+//       RGB_current_mode = rgblight_config.mode;
+//     #endif
+// }
