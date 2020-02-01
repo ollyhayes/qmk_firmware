@@ -61,7 +61,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [ARR] = LAYOUT( \
   //,-----------------------------------------.                ,-----------------------------------------.
-      KC_TRNS,KC_TRNS,KC_HOME,KC_PGUP,KC_PGDN,KC_END,          KC_HOME,KC_PGDN,KC_PGUP,KC_END, KC_TRNS,KC_TRNS,\
+      KC_TRNS,RAND,KC_HOME,KC_PGUP,KC_PGDN,KC_END,          KC_HOME,KC_PGDN,KC_PGUP,KC_END, RAND,KC_TRNS,\
   //|------+------+------+------+------+------|                ---+------+------+------|       ---+------|
       KC_TRNS,KC_DEL,KC_LEFT,KC_UP,  KC_DOWN,KC_RGHT,         KC_LEFT,KC_DOWN,KC_UP,  KC_RGHT,KC_DEL,KC_TRNS,\
   //|------+------+------+------+------+------|                ---+------+------+------|       ---+------|
