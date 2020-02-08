@@ -6,8 +6,9 @@
 #define FUNCTIONS 3
 #define ARR 4
 #define PUNC 5
-#define MEDIA 6
-#define _ADJUST 7
+#define DUBPUNC 6
+#define MEDIA 7
+#define _ADJUST 8
 
 enum custom_keycodes {
   DOWN3 = SAFE_RANGE,

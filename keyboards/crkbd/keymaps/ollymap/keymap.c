@@ -79,22 +79,49 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
       KC_TRNS,KC_NUBS, KC_GRV,  KC_LGUI, KC_LALT, KC_NUHS,           S(KC_QUOT),KC_LALT,KC_LGUI,S(KC_MINS),KC_EQL,KC_TRNS,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
-                                  KC_TRNS, KC_TRNS,   KC_TRNS,      KC_TRNS, KC_TRNS, KC_TRNS \
+                                  KC_TRNS, MO(DUBPUNC),   KC_TRNS,      KC_TRNS, MO(DUBPUNC), KC_TRNS \
                               //`--------------------'  `--------------------'
   ),
 
   [MEDIA] = LAYOUT( \
   //,-----------------------------------------.                ,-----------------------------------------.
-      RESET,RGB_RMOD,RGB_MOD,RGB_TOG,RGB_HUD,RGB_HUI,                RGB_HUD,RGB_HUI,RGB_TOG,RGB_MOD,RGB_RMOD,KC_SLEP,\
+      RESET,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,                KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_SLEP,\
   //|------+------+------+------+------+------|                                |------+------+------+------+------+------|
-      DF(QWERTY),KC_TRNS,KC_CALC,KC_VOLD,KC_VOLU,RGB_MODE_PLAIN,     RGB_MODE_PLAIN,KC_VOLD,KC_VOLU,KC_TRNS,KC_TRNS,KC_CALC,\
+      DF(QWERTY),KC_TRNS,KC_TRNS,KC_VOLD,KC_VOLU,KC_TRNS,     KC_TRNS,KC_VOLD,KC_VOLU,KC_TRNS,KC_TRNS,KC_TRNS,\
   //|------+------+------+------+------+------|                                |------+------+------+------+------+------|
-      DF(BASE),KC_TRNS,RGB_VAD,RGB_VAI,RGB_SAD,RGB_SAI,                RGB_SAD,RGB_SAI,RGB_VAD,RGB_VAI,KC_TRNS,KC_TRNS,\
+      DF(BASE),KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,                KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,\
+  //|------+------+------+------+------+------+------|                  |------+------+------+------+------+------+------|
+                                  KC_TRNS, KC_TRNS,                   KC_TRNS,      KC_TRNS, KC_TRNS, KC_TRNS \
+                              //`--------------------'  `--------------------'
+  ),
+
+  [DUBPUNC] = LAYOUT( \
+  //,-----------------------------------------.                ,-----------------------------------------.
+      KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,                KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,\
+  //|------+------+------+------+------+------|                                |------+------+------+------+------+------|
+      KC_TRNS,KC_TRNS,KC_TRNS,ESZET,KC_TRNS,KC_TRNS,                KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,\
+  //|------+------+------+------+------+------|                                |------+------+------+------+------+------|
+      KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,                KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,\
   //|------+------+------+------+------+------+------|                  |------+------+------+------+------+------+------|
                                   KC_TRNS, KC_TRNS,                   KC_TRNS,      KC_TRNS, KC_TRNS, KC_TRNS \
                               //`--------------------'  `--------------------'
   )
 };
+
+/*
+// old media keys with rgb - disabling to put german letters in
+//   [MEDIA] = LAYOUT( \
+//   //,-----------------------------------------.                ,-----------------------------------------.
+//       RESET,RGB_RMOD,RGB_MOD,RGB_TOG,RGB_HUD,RGB_HUI,                RGB_HUD,RGB_HUI,RGB_TOG,RGB_MOD,RGB_RMOD,KC_SLEP,\
+//   //|------+------+------+------+------+------|                                |------+------+------+------+------+------|
+//       DF(QWERTY),KC_TRNS,KC_CALC,KC_VOLD,KC_VOLU,RGB_MODE_PLAIN,     RGB_MODE_PLAIN,KC_VOLD,KC_VOLU,KC_TRNS,KC_TRNS,KC_CALC,\
+//   //|------+------+------+------+------+------|                                |------+------+------+------+------+------|
+//       DF(BASE),KC_TRNS,RGB_VAD,RGB_VAI,RGB_SAD,RGB_SAI,                RGB_SAD,RGB_SAI,RGB_VAD,RGB_VAI,KC_TRNS,KC_TRNS,\
+//   //|------+------+------+------+------+------+------|                  |------+------+------+------+------+------+------|
+//                                   KC_TRNS, KC_TRNS,                   KC_TRNS,      KC_TRNS, KC_TRNS, KC_TRNS \
+//                               //`--------------------'  `--------------------'
+//   )
+*/
 
 /*
   [TEMPLATE] = LAYOUT( \
