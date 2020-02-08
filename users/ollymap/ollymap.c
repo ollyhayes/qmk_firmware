@@ -189,10 +189,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 tap_code(KC_U);
                 unregister_code(KC_LSFT);
                 unregister_code(KC_LCTRL);
-                tap_code(KC_0);
-                tap_code(KC_0);
-                tap_code(KC_D);
-                tap_code(KC_F);
+                send_string("00df");
                 tap_code(KC_ENTER);
             }
             break;
