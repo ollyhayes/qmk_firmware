@@ -207,17 +207,26 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
         case A_UMLAUT:
             if (record->event.pressed) {
-                sendUtf("00e4");
+                if (shift_held)
+                    sendUtf("00c4");
+                else
+                    sendUtf("00e4");
             }
             break;
         case O_UMLAUT:
             if (record->event.pressed) {
-                sendUtf("00f6");
+                if (shift_held)
+                    sendUtf("00d6");
+                else
+                    sendUtf("00f6");
             }
             break;
         case U_UMLAUT:
             if (record->event.pressed) {
-                sendUtf("00fc");
+                if (shift_held)
+                    sendUtf("00dc");
+                else
+                    sendUtf("00fc");
             }
             break;
         case EURO:
