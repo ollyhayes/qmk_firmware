@@ -73,7 +73,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [PUNC] = LAYOUT( \
   //,-----------------------------------------.                ,-----------------------------------------.
-      KC_TRNS,S(KC_1), S(KC_2), S(KC_3), S(KC_4), S(KC_5),          S(KC_6),   S(KC_7),   S(KC_8),    S(KC_9), S(KC_0),KC_TRNS,\
+      KC_TRNS,S(KC_1), S(KC_2), EURO, S(KC_4), S(KC_5),          S(KC_6),   S(KC_7),   S(KC_8),    S(KC_9), S(KC_0),KC_TRNS,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
       KC_TRNS,S(KC_NUBS),S(KC_GRV),KC_LBRC,KC_RBRC,S(KC_NUHS),          KC_QUOT,   S(KC_LBRC),S(KC_RBRC), KC_MINS, S(KC_EQL),KC_TRNS,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
@@ -97,9 +97,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [DUBPUNC] = LAYOUT( \
   //,-----------------------------------------.                ,-----------------------------------------.
-      KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,                KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,\
+      KC_TRNS,KC_TRNS,KC_TRNS,POUND,KC_TRNS,KC_TRNS,                KC_TRNS,KC_TRNS,U_UMLAUT,KC_TRNS,KC_TRNS,KC_TRNS,\
   //|------+------+------+------+------+------|                                |------+------+------+------+------+------|
-      KC_TRNS,KC_TRNS,KC_TRNS,ESZET,KC_TRNS,KC_TRNS,                KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,\
+      KC_TRNS,A_UMLAUT,KC_TRNS,ESZET,KC_TRNS,KC_TRNS,                KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,O_UMLAUT,KC_TRNS,\
   //|------+------+------+------+------+------|                                |------+------+------+------+------+------|
       KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,                KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,\
   //|------+------+------+------+------+------+------|                  |------+------+------+------+------+------+------|

@@ -24,7 +24,12 @@ enum custom_keycodes {
   ADJUST,
   BACKLIT,
   RGBRST,
-  ESZET
+  ESZET,
+  A_UMLAUT,
+  O_UMLAUT,
+  U_UMLAUT,
+  EURO,
+  POUND,
 };
 
 #ifdef RGBLIGHT_ENABLE

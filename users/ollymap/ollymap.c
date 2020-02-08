@@ -2,6 +2,8 @@
 #include "version.h"
 #include "words.c"
 
+static bool shift_held = false;
+
 static void sendUtf(const char *str) {
     register_code(KC_LCTRL);
     register_code(KC_LSFT);
@@ -192,11 +194,44 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         #endif
         break;
 
+        case KC_LSFT:
+        case KC_RSFT:
+            shift_held = record->event.pressed;
+            return true;
+            break;
+
         case ESZET:
             if (record->event.pressed) {
                 sendUtf("00df");
             }
             break;
+        case A_UMLAUT:
+            if (record->event.pressed) {
+                sendUtf("00e4");
+            }
+            break;
+        case O_UMLAUT:
+            if (record->event.pressed) {
+                sendUtf("00f6");
+            }
+            break;
+        case U_UMLAUT:
+            if (record->event.pressed) {
+                sendUtf("00fc");
+            }
+            break;
+        case EURO:
+            if (record->event.pressed) {
+                sendUtf("20ac");
+            }
+            break;
+        case POUND:
+            if (record->event.pressed) {
+                sendUtf("00a3");
+            }
+            break;
+
+        
     }
     return true;
 }
