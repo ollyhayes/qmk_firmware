@@ -2,6 +2,16 @@
 #include "version.h"
 #include "words.c"
 
+static void sendUtf(const char *str) {
+    register_code(KC_LCTRL);
+    register_code(KC_LSFT);
+    tap_code(KC_U);
+    unregister_code(KC_LSFT);
+    unregister_code(KC_LCTRL);
+    send_string(str);
+    tap_code(KC_ENTER);
+}
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     static bool key_pressed_since_switch = false;
     static uint16_t switch_down_time = 0;
@@ -184,13 +194,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
         case ESZET:
             if (record->event.pressed) {
-                register_code(KC_LCTRL);
-                register_code(KC_LSFT);
-                tap_code(KC_U);
-                unregister_code(KC_LSFT);
-                unregister_code(KC_LCTRL);
-                send_string("00df");
-                tap_code(KC_ENTER);
+                sendUtf("00df");
             }
             break;
     }
