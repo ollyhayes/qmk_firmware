@@ -181,6 +181,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
         #endif
         break;
+
+        case ESZET:
+            if (record->event.pressed) {
+                register_code(KC_LCTRL);
+                register_code(KC_LSFT);
+                tap_code(KC_U);
+                unregister_code(KC_LSFT);
+                unregister_code(KC_LCTRL);
+                tap_code(KC_0);
+                tap_code(KC_0);
+                tap_code(KC_D);
+                tap_code(KC_F);
+                tap_code(KC_ENTER);
+            }
+            break;
     }
     return true;
 }

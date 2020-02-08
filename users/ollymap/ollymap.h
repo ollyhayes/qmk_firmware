@@ -22,7 +22,8 @@ enum custom_keycodes {
   SCTLTAB,
   ADJUST,
   BACKLIT,
-  RGBRST
+  RGBRST,
+  ESZET
 };
 
 #ifdef RGBLIGHT_ENABLE
