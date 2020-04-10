@@ -239,8 +239,26 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 sendUtf("00a3");
             }
             break;
-
-        
+        case DEGREES:
+            if (record->event.pressed) {
+                sendUtf("00b0");
+            }
+            break;
+        case TICKING:
+            if (record->event.pressed) {
+                sendUtf("2713");
+            }
+            break;
+        case CROSS:
+            if (record->event.pressed) {
+                sendUtf("2717");
+            }
+            break;
+        case TERROR:
+            if (record->event.pressed) {
+                sendUtf("1f631");
+            }
+            break;
     }
     return true;
 }

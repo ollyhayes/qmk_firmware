@@ -111,15 +111,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------.                ,-----------------------------------------.
       KC_TRNS,KC_TRNS,KC_TRNS,POUND,KC_TRNS,KC_TRNS,                KC_TRNS,KC_TRNS,U_UMLAUT,KC_TRNS,KC_TRNS,KC_TRNS,\
   //|------+------+------+------+------+------|                                |------+------+------+------+------+------|
-      KC_TRNS,A_UMLAUT,KC_TRNS,ESZET,KC_TRNS,KC_TRNS,                KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,O_UMLAUT,KC_TRNS,\
+      KC_TRNS,A_UMLAUT,KC_TRNS,ESZET,TICKING,KC_TRNS,                DEGREES,KC_TRNS,KC_TRNS,KC_TRNS,O_UMLAUT,KC_TRNS,\
   //|------+------+------+------+------+------|                                |------+------+------+------+------+------|
-      KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,                KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,\
+      KC_TRNS,TERROR,CROSS,KC_TRNS,KC_TRNS,KC_TRNS,                KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,\
   //|------+------+------+------+------+------+------|                  |------+------+------+------+------+------+------|
                                   KC_TRNS, KC_TRNS,                   KC_TRNS,      KC_TRNS, KC_TRNS, KC_TRNS \
                               //`--------------------'  `--------------------'
   )
 };
 
+// ~~ä°✓`✗😱
 /*
 // old media keys with rgb - disabling to put german letters in
 //   [MEDIA] = LAYOUT( \

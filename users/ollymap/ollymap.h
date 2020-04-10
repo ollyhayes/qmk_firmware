@@ -31,6 +31,10 @@ enum custom_keycodes {
   U_UMLAUT,
   EURO,
   POUND,
+  DEGREES,
+  TICKING,
+  CROSS,
+  TERROR,
 };
 
 #ifdef RGBLIGHT_ENABLE
