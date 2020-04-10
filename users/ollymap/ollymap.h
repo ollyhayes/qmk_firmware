@@ -2,13 +2,14 @@
 
 #define BASE 0
 #define QWERTY 1
-#define NUM 2
-#define FUNCTIONS 3
-#define ARR 4
-#define PUNC 5
-#define DUBPUNC 6
-#define MEDIA 7
-#define _ADJUST 8
+#define GAMES 2
+#define NUM 3
+#define FUNCTIONS 4
+#define ARR 5
+#define PUNC 6
+#define DUBPUNC 7
+#define MEDIA 8
+#define _ADJUST 9
 
 enum custom_keycodes {
   DOWN3 = SAFE_RANGE,
