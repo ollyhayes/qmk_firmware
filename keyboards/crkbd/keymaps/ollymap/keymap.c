@@ -97,11 +97,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [MEDIA] = LAYOUT( \
   //,-----------------------------------------.                ,-----------------------------------------.
-      RESET,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,                KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_SLEP,\
+      RESET,RGB_RMOD,RGB_MOD,RGB_TOG,RGB_HUD,RGB_HUI,                RGB_HUD,RGB_HUI,RGB_TOG,RGB_MOD,RGB_RMOD,KC_SLEP,\
   //|------+------+------+------+------+------|                                |------+------+------+------+------+------|
-      DF(QWERTY),KC_TRNS,KC_TRNS,KC_VOLD,KC_VOLU,KC_TRNS,     KC_TRNS,KC_VOLD,KC_VOLU,KC_TRNS,KC_TRNS,KC_TRNS,\
+      DF(QWERTY),KC_TRNS,KC_TRNS,KC_VOLD,KC_VOLU,RGB_MODE_PLAIN,     RGB_MODE_PLAIN,KC_VOLD,KC_VOLU,KC_TRNS,KC_TRNS,KC_TRNS,\
   //|------+------+------+------+------+------|                                |------+------+------+------+------+------|
-      DF(BASE),DF(GAMES),KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,                KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,\
+      DF(BASE),DF(GAMES),RGB_VAD,RGB_VAI,RGB_SAD,RGB_SAI,                RGB_SAD,RGB_SAI,RGB_VAD,RGB_VAI,KC_TRNS,KC_TRNS,\
   //|------+------+------+------+------+------+------|                  |------+------+------+------+------+------+------|
                                   KC_TRNS, KC_TRNS,                   KC_TRNS,      KC_TRNS, KC_TRNS, KC_TRNS \
                               //`--------------------'  `--------------------'
