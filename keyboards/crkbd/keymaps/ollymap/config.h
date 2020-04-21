@@ -37,6 +37,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #ifdef RGBLIGHT_ENABLE
     #define RGBLIGHT_ANIMATIONS
+    #define RGBLIGHT_SLEEP
     #undef RGBLED_NUM
     #define RGBLED_NUM 21
     #define RGBLIGHT_LIMIT_VAL 120
