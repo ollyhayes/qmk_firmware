@@ -120,6 +120,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   )
 };
 
+/*
 // old media keys with rgb - disabling to put german letters in
 //   [MEDIA] = LAYOUT( \
 //   //,-----------------------------------------.                ,-----------------------------------------.
