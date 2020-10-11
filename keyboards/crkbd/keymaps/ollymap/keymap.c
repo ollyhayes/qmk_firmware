@@ -75,7 +75,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------.                ,-----------------------------------------.
       KC_TRNS,RAND,KC_HOME,KC_PGUP,KC_PGDN,KC_END,          KC_HOME,KC_PGDN,KC_PGUP,KC_END, RAND,KC_TRNS,\
   //|------+------+------+------+------+------|                ---+------+------+------|       ---+------|
-      KC_TRNS,KC_DEL,KC_LEFT,KC_UP,  KC_DOWN,KC_RGHT,         KC_LEFT,KC_DOWN,KC_UP,  KC_RGHT,KC_DEL,KC_TRNS,\
+      KC_ENT,KC_DEL,KC_LEFT,KC_UP,  KC_DOWN,KC_RGHT,         KC_LEFT,KC_DOWN,KC_UP,  KC_RGHT,KC_DEL,KC_TRNS,\
   //|------+------+------+------+------+------|                ---+------+------+------|       ---+------|
       KC_TRNS,KC_INS,CLEFT,KC_LGUI,KC_LALT,CRIGHT,          CLEFT,  DOWN3,  UP3,    CRIGHT,  KC_INS,KC_TRNS,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
