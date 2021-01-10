@@ -97,6 +97,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             return false;
 
+        case MO(PUNC):
+            if (!record->event.pressed) {
+                if (alt_ctrl_tab_used) {
+                    unregister_code(KC_LALT);
+                    alt_ctrl_tab_used = false;
+                }
+            }
+            return true;
+
         case MO(FUNCTIONS):
             if (!record->event.pressed) {
                 // if NUM_SWITCH has been lifted first, toggle to that layer

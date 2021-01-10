@@ -85,7 +85,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [PUNC] = LAYOUT( \
   //,-----------------------------------------.                ,-----------------------------------------.
-      KC_TRNS,S(KC_1), S(KC_2), EURO, S(KC_4), S(KC_5),          S(KC_6),   S(KC_7),   S(KC_8),    S(KC_9), S(KC_0),KC_TRNS,\
+      ALTTAB,S(KC_1), S(KC_2), EURO, S(KC_4), S(KC_5),          S(KC_6),   S(KC_7),   S(KC_8),    S(KC_9), S(KC_0),KC_TRNS,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
       KC_TRNS,S(KC_NUBS),S(KC_GRV),KC_LBRC,KC_RBRC,S(KC_NUHS),          KC_QUOT,   S(KC_LBRC),S(KC_RBRC), KC_MINS, S(KC_EQL),KC_TRNS,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
