@@ -22,6 +22,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 //#define USE_MATRIX_I2C
 
+
+// use this command to flash firmware: 
+// qmk flash -kb crkbd -km ollymap
+
 /* Select hand configuration */
 
 #define MASTER_RIGHT
